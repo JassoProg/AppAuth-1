@@ -1,0 +1,126 @@
+<div class="role-management-container">
+  <div class="header">
+    <h1>Gestión de Roles</h1>
+    <div class="actions">
+      <button (click)="toggleCreateForm()" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M12 5V19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Crear Rol
+      </button>
+      <button (click)="toggleAssignForm()" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21L12 19L16 21Z" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        Asignar Rol
+      </button>
+    </div>
+  </div>
+
+  <!-- Formulario para crear rol -->
+  <div class="form-section" *ngIf="showCreateForm">
+    <div class="form-card">
+      <h3>Crear Nuevo Rol</h3>
+      <form [formGroup]="roleForm" (ngSubmit)="createRole()">
+        <div class="form-group">
+          <label for="roleName">Nombre del Rol</label>
+          <input 
+            type="text" 
+            id="roleName"
+            formControlName="roleName" 
+            placeholder="Ej: Manager, Editor, etc."
+            [class.error]="roleForm.get('roleName')?.invalid && roleForm.get('roleName')?.touched"
+          />
+          <span *ngIf="roleForm.get('roleName')?.invalid && roleForm.get('roleName')?.touched" class="error-text">
+            El nombre del rol es requerido (mínimo 2 caracteres)
+          </span>
+        </div>
+        <div class="form-actions">
+          <button type="button" (click)="showCreateForm = false" class="btn-cancel">Cancelar</button>
+          <button type="submit" [disabled]="roleForm.invalid" class="btn-submit">Crear Rol</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Formulario para asignar rol -->
+  <div class="form-section" *ngIf="showAssignForm">
+    <div class="form-card">
+      <h3>Asignar Rol a Usuario</h3>
+      <form [formGroup]="assignRoleForm" (ngSubmit)="assignRole()">
+        <div class="form-group">
+          <label for="userId">Usuario</label>
+          <select id="userId" formControlName="userId">
+            <option value="">Seleccionar usuario</option>
+            <option *ngFor="let user of users" [value]="user.id">
+              {{ user.fullName }} ({{ user.email }})
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="roleId">Rol</label>
+          <select id="roleId" formControlName="roleId">
+            <option value="">Seleccionar rol</option>
+            <option *ngFor="let role of roles" [value]="role.id">
+              {{ role.name }}
+            </option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="button" (click)="showAssignForm = false" class="btn-cancel">Cancelar</button>
+          <button type="submit" [disabled]="assignRoleForm.invalid" class="btn-submit">Asignar Rol</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lista de roles -->
+  <div class="roles-grid" *ngIf="!loading; else loadingTemplate">
+    <div class="role-card" *ngFor="let role of roles">
+      <div class="role-header">
+        <div class="role-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 15L8 11H16L12 15Z" fill="currentColor"/>
+            <path d="M17 3H7C5.89543 3 5 3.89543 5 5V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V5C19 3.89543 18.1046 3 17 3Z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>{{ role.name }}</h3>
+        <button (click)="deleteRole(role.id)" class="btn-delete" title="Eliminar rol">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M3 6H5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+      </div>
+      <div class="role-stats">
+        <div class="stat">
+          <span class="stat-label">Total Usuarios</span>
+          <span class="stat-value">{{ role.totalUsers }}</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">ID</span>
+          <span class="stat-value id">{{ role.id.substring(0, 8) }}...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loadingTemplate>
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Cargando roles...</p>
+    </div>
+  </ng-template>
+
+  <div class="empty-state" *ngIf="!loading && roles.length === 0">
+    <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+      <path d="M17 3H7C5.89543 3 5 3.89543 5 5V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V5C19 3.89543 18.1046 3 17 3Z" stroke="currentColor" stroke-width="2"/>
+      <path d="M9 9H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M9 13H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <h3>No hay roles creados</h3>
+    <p>Comienza creando tu primer rol</p>
+    <button (click)="toggleCreateForm()" class="btn-primary">Crear Primer Rol</button>
+  </div>
+</div>

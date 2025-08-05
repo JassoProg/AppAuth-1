@@ -1,0 +1,96 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\rayre\\OneDrive\\Escritorio\\Tareas o Trabajos\\Desarrollo Web Integral\\Aplicaciones_NET\\AuthAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD68B5B-D08C-4652-9765-43811F3EB123}|AuthAPI\\AuthAPI.csproj|c:\\users\\rayre\\onedrive\\escritorio\\tareas o trabajos\\desarrollo web integral\\aplicaciones_net\\authapi\\authapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD68B5B-D08C-4652-9765-43811F3EB123}|AuthAPI\\AuthAPI.csproj|solutionrelative:authapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD68B5B-D08C-4652-9765-43811F3EB123}|AuthAPI\\AuthAPI.csproj|c:\\users\\rayre\\onedrive\\escritorio\\tareas o trabajos\\desarrollo web integral\\aplicaciones_net\\authapi\\authapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD68B5B-D08C-4652-9765-43811F3EB123}|AuthAPI\\AuthAPI.csproj|solutionrelative:authapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD68B5B-D08C-4652-9765-43811F3EB123}|AuthAPI\\AuthAPI.csproj|c:\\users\\rayre\\onedrive\\escritorio\\tareas o trabajos\\desarrollo web integral\\aplicaciones_net\\authapi\\authapi\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD68B5B-D08C-4652-9765-43811F3EB123}|AuthAPI\\AuthAPI.csproj|solutionrelative:authapi\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD68B5B-D08C-4652-9765-43811F3EB123}|AuthAPI\\AuthAPI.csproj|c:\\users\\rayre\\onedrive\\escritorio\\tareas o trabajos\\desarrollo web integral\\aplicaciones_net\\authapi\\authapi\\dtos\\userdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD68B5B-D08C-4652-9765-43811F3EB123}|AuthAPI\\AuthAPI.csproj|solutionrelative:authapi\\dtos\\userdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\rayre\\OneDrive\\Escritorio\\Tareas o Trabajos\\Desarrollo Web Integral\\Aplicaciones_NET\\AuthAPI\\AuthAPI\\Program.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\rayre\\OneDrive\\Escritorio\\Tareas o Trabajos\\Desarrollo Web Integral\\Aplicaciones_NET\\AuthAPI\\AuthAPI\\Program.cs",
+              "RelativeToolTip": "AuthAPI\\Program.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGsAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T04:56:01.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RolesController.cs",
+              "DocumentMoniker": "C:\\Users\\rayre\\OneDrive\\Escritorio\\Tareas o Trabajos\\Desarrollo Web Integral\\Aplicaciones_NET\\AuthAPI\\AuthAPI\\Controllers\\RolesController.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Controllers\\RolesController.cs",
+              "ToolTip": "C:\\Users\\rayre\\OneDrive\\Escritorio\\Tareas o Trabajos\\Desarrollo Web Integral\\Aplicaciones_NET\\AuthAPI\\AuthAPI\\Controllers\\RolesController.cs",
+              "RelativeToolTip": "AuthAPI\\Controllers\\RolesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T04:54:50.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\rayre\\OneDrive\\Escritorio\\Tareas o Trabajos\\Desarrollo Web Integral\\Aplicaciones_NET\\AuthAPI\\AuthAPI\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\rayre\\OneDrive\\Escritorio\\Tareas o Trabajos\\Desarrollo Web Integral\\Aplicaciones_NET\\AuthAPI\\AuthAPI\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "AuthAPI\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAAAAAMMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T04:54:49.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserDetailDto.cs",
+              "DocumentMoniker": "C:\\Users\\rayre\\OneDrive\\Escritorio\\Tareas o Trabajos\\Desarrollo Web Integral\\Aplicaciones_NET\\AuthAPI\\AuthAPI\\Dtos\\UserDetailDto.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Dtos\\UserDetailDto.cs",
+              "ToolTip": "C:\\Users\\rayre\\OneDrive\\Escritorio\\Tareas o Trabajos\\Desarrollo Web Integral\\Aplicaciones_NET\\AuthAPI\\AuthAPI\\Dtos\\UserDetailDto.cs",
+              "RelativeToolTip": "AuthAPI\\Dtos\\UserDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T04:54:47.414Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

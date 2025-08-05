@@ -1,0 +1,83 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="mb-0">Dashboard</h1>
+        </div>
+        <div class="card-body">
+          <p class="lead">Bienvenido al panel principal de administración</p>
+          
+          <div *ngIf="currentUser && !loading">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="mb-0">Información del Usuario</h3>
+                  </div>
+                  <div class="card-body">
+                    <table class="table table-striped">
+                      <tbody>
+                        <tr>
+                          <th scope="row">Email:</th>
+                          <td>{{ currentUser.email }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Nombre:</th>
+                          <td>{{ currentUser.fullName }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">ID:</th>
+                          <td>{{ currentUser.id }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Roles:</th>
+                          <td>
+                            <span *ngIf="currentUser.roles.length > 0">
+                              <span *ngFor="let role of currentUser.roles" class="badge badge-primary mr-1">{{ role }}</span>
+                            </span>
+                            <span *ngIf="currentUser.roles.length === 0" class="text-muted">Sin roles asignados</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="mb-0">Acciones Rápidas</h3>
+                  </div>
+                  <div class="card-body">
+                    <div class="list-group">
+                      <a routerLink="/auth/profile" class="list-group-item list-group-item-action">
+                        Ver y editar perfil
+                      </a>
+                      <a *ngIf="isAdmin()" routerLink="/admin/roles" class="list-group-item list-group-item-action list-group-item-warning">
+                        Gestión de Roles (Admin)
+                      </a>
+                      <button (click)="logout()" class="list-group-item list-group-item-action list-group-item-danger">
+                        Cerrar Sesión
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="loading" class="text-center">
+            <div class="card">
+              <div class="card-body">
+                <div class="spinner"></div>
+                <p class="text-muted">Cargando información del usuario...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

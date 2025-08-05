@@ -1,0 +1,56 @@
+<div class="confirm-email-container">
+  <div class="confirm-card">
+    <div class="confirm-header">
+      <div class="icon-container" [ngClass]="{'success': success, 'error': error, 'loading': loading}">
+        <svg *ngIf="loading" class="spinner" width="48" height="48" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="60" stroke-dashoffset="60">
+            <animate attributeName="stroke-dashoffset" dur="2s" values="60;0;60" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+        
+        <svg *ngIf="success" width="48" height="48" viewBox="0 0 24 24" fill="none">
+          <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        
+        <svg *ngIf="error" width="48" height="48" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+          <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      
+      <h1 *ngIf="loading">Confirmando Email...</h1>
+      <h1 *ngIf="success">¡Email Confirmado!</h1>
+      <h1 *ngIf="error">Error de Confirmación</h1>
+    </div>
+    
+    <div class="confirm-content">
+      <p *ngIf="loading" class="loading-text">
+        Estamos verificando tu email. Por favor espera...
+      </p>
+      
+      <p *ngIf="success" class="success-text">
+        {{ message || 'Tu email ha sido confirmado exitosamente. Serás redirigido al login en unos segundos.' }}
+      </p>
+      
+      <p *ngIf="error" class="error-text">
+        {{ error }}
+      </p>
+      
+      <div class="confirm-actions">
+        <button *ngIf="success" routerLink="/auth/login" class="btn-primary">
+          Ir al Login
+        </button>
+        
+        <div *ngIf="error" class="error-actions">
+          <button (click)="resendConfirmation()" class="btn-secondary">
+            Reenviar Email
+          </button>
+          <button routerLink="/auth/register" class="btn-outline">
+            Registrarse de Nuevo
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

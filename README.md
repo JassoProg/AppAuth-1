@@ -1,6 +1,66 @@
-# AuthApp
+# Auth App - Sistema de Autenticación Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+Este proyecto es una aplicación Angular completa de autenticación con JWT que incluye registro, login, guards de rutas, interceptores HTTP y gestión de roles.
+
+## 🚀 Características Implementadas
+
+- ✅ **Servicio de autenticación** (`auth.service.ts`)
+- ✅ **Interceptor JWT** - Agrega automáticamente el token a las solicitudes HTTP
+- ✅ **Guards de Rutas** - `AuthGuard` y `RoleGuard` para proteger rutas
+- ✅ **Componentes protegidos** - Dashboard y páginas que requieren autenticación
+- ✅ **Servicio de usuario** (`user.service.ts`) - Para obtener detalles del usuario autenticado
+- ✅ **Logout/Limpiar sesión** - Botón de cerrar sesión en toda la aplicación
+- ✅ **Redirección basada en autenticación** - Redirecciona usuarios no autenticados
+- ✅ **Gestión de roles** - Verificación de permisos basada en roles
+- ✅ **Navegación responsive** - Navbar que se muestra solo cuando el usuario está logueado
+
+## 🏗️ Estructura del Proyecto
+
+```
+src/app/
+├── auth/
+│   ├── auth.guard.ts          # Guard para rutas autenticadas
+│   ├── auth.service.ts        # Servicio principal de autenticación
+│   ├── jwt.interceptor.ts     # Interceptor para agregar JWT a requests
+│   ├── role.guard.ts          # Guard para verificar roles
+│   ├── login/                 # Componente de login
+│   ├── register/              # Componente de registro
+│   └── profile/               # Componente de perfil
+├── components/
+│   ├── dashboard/             # Dashboard principal (protegido)
+│   ├── navbar/                # Navegación principal
+│   └── unauthorized/          # Página de acceso no autorizado
+├── services/
+│   └── user.service.ts        # Servicio para gestión de usuarios
+└── models/                    # Interfaces TypeScript
+```
+
+## 🔐 Flujo de Autenticación
+
+1. **Login**: Usuario ingresa credenciales → Recibe JWT → Token se almacena en localStorage
+2. **Interceptor**: Todas las requests HTTP agregan automáticamente el header `Authorization: Bearer {token}`
+3. **Guards**: Verifican autenticación y roles antes de acceder a rutas protegidas
+4. **Redirección**: Usuarios no autenticados son redirigidos al login
+5. **Logout**: Limpia el token y redirige al login
+
+## 🛡️ Rutas y Protección
+
+| Ruta | Componente | Protección | Descripción |
+|------|------------|------------|-------------|
+| `/auth/login` | LoginComponent | Pública | Página de inicio de sesión |
+| `/auth/register` | RegisterComponent | Pública | Página de registro |
+| `/auth/profile` | ProfileComponent | AuthGuard | Perfil del usuario autenticado |
+| `/dashboard` | DashboardComponent | AuthGuard | Dashboard principal |
+| `/admin` | DashboardComponent | RoleGuard (Admin) | Panel administrativo |
+| `/unauthorized` | UnauthorizedComponent | Pública | Acceso no autorizado |
+
+## 🔧 Configuración del Backend
+
+La aplicación está configurada para conectarse a un backend ASP.NET Core en:
+- **URL Base**: `https://localhost:5000/api/Account`
+- **Endpoints utilizados**:
+  - `POST /login` - Autenticación
+  - `GET /detail` - Obtener detalles del usuario autenticado
 
 ## Development server
 
